@@ -14,7 +14,7 @@ services:
         volumes:
             - .:/var/www/html
         depends_on:
-            - mysql
+            - adminer
     mysql:
         image: mysql:5.7
         environment:
@@ -30,5 +30,7 @@ services:
         image: adminer
         ports:
             - "${APP_ADMINER}:8080"
+        depends_on:
+            - mysql
 volumes:
     mysql-data:
